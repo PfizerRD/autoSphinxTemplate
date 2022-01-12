@@ -1,0 +1,29 @@
+FROM alpine:latest
+
+RUN mkdir -p /etc/Sphinx/build
+RUN mkdir -p /etc/Sphinx/source
+RUN mkdir -p /etc/pythonScripts
+
+ADD /source /etc/Sphinx/source
+ADD requirements.txt /etc
+ADD sphinxConfig.yml /etc
+
+WORKDIR /etc
+
+RUN apk add --no-cache \
+        python3 \
+        make \
+        git \
+        py3-pip \ 
+        texlive \
+        texlive-xetex \
+        texmf-dist \
+        texmf-dist-formatsextra \
+        texmf-dist-latexextra \
+        texmf-dist-pictures \
+        texmf-dist-science
+
+RUN pip3 install -r requirements.txt
+
+CMD sphinx-autobuild -b latex /etc/Sphinx/source /etc/Sphinx/build/pdf
+

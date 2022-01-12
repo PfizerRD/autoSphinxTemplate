@@ -45,7 +45,8 @@ numfig = True
 extensions = ['sphinx.ext.viewcode', 
               'sphinx.ext.autodoc', 
               'sphinx.ext.napoleon', 
-              'sphinx.ext.autosectionlabel', 
+              'sphinx.ext.autosectionlabel',
+              'sphinx.ext.mathjax', 
               'sphinx_rtd_theme']
 
 
@@ -89,4 +90,107 @@ html_css_files = ['style.css']
 html_sidebars = {}
 html_sidebars['**'] = ['globaltoc.html', 'sourcelink.html', 'searchbox.html']
 html_sidebars['using/windows'] = ['windowssidebar.html', 'searchbox.html']
+
+latex_logo = '_static/Pfizer_Logo_Color_RGB.png'
+
+
+latex_elements = {}
+# The paper size ('letterpaper' or 'a4paper').
+latex_elements['papersize'] = 'letterpaper'
+# The font size ('10pt', '11pt' or '12pt').
+latex_elements['pointsize'] = '11pt'
+# Remove white page after each chapter
+latex_elements['extraclassoptions'] = r'''
+openany, oneside
+'''
+latex_elements['figure_align'] = 'htbp'
+# Additional stuff for the LaTeX preamble.
+latex_elements['preamble'] = r'''
+\usepackage{lastpage}
+%% must wrap the whole latex in \makeatletter...\makeatother to use \py@HeaderFamily
+\makeatletter
+
+  \fancypagestyle{plain}{
+    \fancyhf{}
+
+    \fancyfoot[L]{}
+    \fancyfoot[C]{Pfizer Internal Use}
+    \fancyfoot[R]{Page {\py@HeaderFamily\thepage} of \textbf{\pageref*{LastPage}}}
+
+    \fancyhead[L]{\includegraphics[width=2.5cm]{Pfizer_Logo_Color_RGB.png}}
+    \fancyhead[C]{{\py@HeaderFamily \@title}}
+    \fancyhead[R]{}
+
+    \renewcommand{\headrulewidth}{0.4pt}
+    \renewcommand{\footrulewidth}{0.4pt}
+  }
+
+  \fancypagestyle{normal}{
+    \fancyhf{}
+
+    \fancyfoot[L]{}
+    \fancyfoot[C]{Pfizer Internal Use}
+    \fancyfoot[R]{Page {\py@HeaderFamily\thepage} of \textbf{\pageref*{LastPage}}}
+
+    \fancyhead[L]{\includegraphics[width=2.5cm]{Pfizer_Logo_Color_RGB.png}}
+    \fancyhead[C]{{\py@HeaderFamily \@title}}
+    \fancyhead[R]{}
+
+    \renewcommand{\headrulewidth}{0.4pt}
+    \renewcommand{\footrulewidth}{0.4pt}
+  }
+\makeatother
+
+\usepackage{titlesec}
+\titleformat{\chapter}{\huge\bfseries}{\thechapter. \hspace{2mm}}{0pt}{\huge}
+
+%% spacing between line
+\usepackage{setspace}
+%\onehalfspacing
+%\doublespacing
+\singlespacing
+
+%% datetime
+\usepackage{datetime}
+
+\newdateformat{MonthYearFormat}{%
+    \monthname[\THEMONTH] \THEDAY, \THEYEAR}
+
+\renewcommand{\releasename}{{\py@HeaderFamily \py@release}}
+'''
+
+latex_elements['maketitle'] = r'''
+\pagenumbering{Roman} %% to avoid page 1 conflict with actual page 1
+
+\begin{titlepage}
+    %% must wrap the whole latex in \makeatletter...\makeatother to use \py@HeaderFamily
+    \makeatletter
+        
+        \centering
+        \vspace*{30mm} %% * is used to give space from top
+        \textbf{\Huge{{\py@HeaderFamily \@title}}}
+        
+        \vspace{0mm}
+
+        \Large \textbf{{\py@HeaderFamily \py@release}}
+        \vspace{10mm}
+        \begin{figure}[!h]
+            \centering
+            \includegraphics[scale=0.2]{Pfizer_Logo_Color_RGB.png}
+        \end{figure}
+
+        \vspace{10mm}
+        \Large \textit{\textbf{{\py@HeaderFamily \@author}}}
+        \vspace{5mm}
+
+        \small  Last updated : \MonthYearFormat\today
+
+        %% \vfill adds at the bottom
+        \vfill
+        \small \textit{Repository available at the following github:}
+        \small \url{https://github.com/brentjm/Waters-Patrol-Connectivity}
+    \makeatother
+\end{titlepage}
+
+'''
 

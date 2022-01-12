@@ -1,15 +1,31 @@
 version: "3.9"
 
 services:
-  sphinx:
+  sphinx_html:
     container_name: sphinx_html
     build:
       context: ./docs
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile_html
     image: sphinxdoc/sphinx
     ports:
-      - 8080:80
+      - "8080:80"
     volumes:
       - "${PWD}/docs/source:/etc/Sphinx/source"
-      - "${PWD}/pythonScripts:/etc/pythonScripts"
+      - "${PWD}/docs/build:/etc/Sphinx/build"
+      - "${PWD}/pythonScripts:/etc/pythonScripts"  
+    restart: unless-stopped
+  
+  sphinx_pdf:
+    container_name: sphinx_pdf
+    build:
+      context: ./docs
+      dockerfile: Dockerfile_latex
+    image: sphinxdoc/sphinx-latexpdf
+    volumes:
+      - "${PWD}/docs/source:/etc/Sphinx/source"
+      - "${PWD}/docs/build:/etc/Sphinx/build"
+      - "${PWD}/pythonScripts:/etc/pythonScripts"  
+    restart: unless-stopped
+
+
 
