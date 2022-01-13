@@ -33,6 +33,7 @@ This is a reference to an acronym: :term:`API`
 
 For more features not covered within this template, refer to the `Sphinx documentation <https://www.sphinx-doc.org/en/master/>`_.
 
+
 .. rubric:: Footnotes
 
 .. [#f1] This is a footnote example.
