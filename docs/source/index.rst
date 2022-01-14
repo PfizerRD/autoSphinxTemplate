@@ -11,3 +11,9 @@ MyProject
    versionhistory
    acronyms
 
+.. only:: builder_html
+
+   Download links
+   ==============
+
+   PDF document :download:`myprojectname.pdf <../build/pdf/myprojectname.pdf>`.

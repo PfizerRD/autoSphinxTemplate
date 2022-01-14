@@ -6,7 +6,7 @@ services:
     build:
       context: ./docs
       dockerfile: Dockerfile_html
-    image: sphinxdoc/sphinx
+    image: sphinxdoc/sphinx-html
     ports:
       - "8080:80"
     volumes:
