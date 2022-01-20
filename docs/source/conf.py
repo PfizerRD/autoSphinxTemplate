@@ -14,6 +14,7 @@ import os
 import sys
 import sphinx_rtd_theme
 import yaml
+from datetime import date
 
 sphinxConfFile = os.path.abspath('../../sphinxConfig.yml')
 
@@ -21,12 +22,14 @@ with open(sphinxConfFile, "rt") as file_obj:
     sphinxParameters = yaml.safe_load(file_obj.read())
 
 sys.path.insert(0, os.path.abspath('_ext'))
-sys.path.insert(0, os.path.abspath('../../{}'.format(sphinxParameters['project']['scriptsFolder'])))
+for folder in sphinxParameters['project']['scriptsFolders']:
+    sys.path.insert(0, os.path.abspath('../../{}'.format(folder)))
 
 #sys.setrecursionlimit(1500)
 
-# -- Project information -----------------------------------------------------
+datestr = date.today().strftime("%d-%b-%Y")
 
+# -- Project information -----------------------------------------------------
 project = sphinxParameters['project']['name']
 author = sphinxParameters['project']['authors']
 copyright = '{}, {}'.format(str(sphinxParameters['project']['copyright']), author)
@@ -35,6 +38,15 @@ copyright = '{}, {}'.format(str(sphinxParameters['project']['copyright']), autho
 release = str(sphinxParameters['project']['release'])
 version = 'v: {}'.format(release)
 
+variables_to_export = [
+    "author",
+    "release",
+    "datestr"
+]
+frozen_locals = dict(locals())
+rst_epilog = '\n'.join(map(lambda x: f".. |{x}| replace:: {frozen_locals[x]}", variables_to_export))
+del frozen_locals
+
 numfig = True
 
 # -- General configuration ---------------------------------------------------
@@ -42,10 +54,10 @@ numfig = True
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinx.ext.viewcode', 
-              'sphinx.ext.autodoc', 
-              'sphinx.ext.napoleon', 
-              'sphinx.ext.autosectionlabel', 
+extensions = ['sphinx.ext.viewcode',
+              'sphinx.ext.autodoc',
+              'sphinx.ext.napoleon',
+              'sphinx.ext.autosectionlabel',
               'sphinx_rtd_theme',
               'sphinx.ext.todo']
 
@@ -90,4 +102,3 @@ html_css_files = ['style.css']
 html_sidebars = {}
 html_sidebars['**'] = ['globaltoc.html', 'sourcelink.html', 'searchbox.html']
 html_sidebars['using/windows'] = ['windowssidebar.html', 'searchbox.html']
-

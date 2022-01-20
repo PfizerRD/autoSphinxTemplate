@@ -1,6 +1,7 @@
 project:
     name: MyProjectName
     copyright: 2022
-    authors: 'J. Doe'
+    authors: John Doe
     release: 0.1
-    scriptsFolder: pythonScripts
+    scriptsFolders:
+      - pythonScripts
