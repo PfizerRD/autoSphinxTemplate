@@ -20,7 +20,7 @@ The structure of the repository for the automated documentation is the following
 │   ├── Dockerfile
 │   ├── requirements.txt
 │   └── sphinxConfig.yml
-├── pythonScripts (can be renamed)
+├── pythonScripts (can be renamed or more can folders can be also added)
 │   ├── file_1.py
 │   ├── file_2.py
 │   ├── ...
@@ -34,7 +34,7 @@ The structure of the repository for the automated documentation is the following
 
 To bring the system up and running simply point the repository folder within the terminal/command prompt and run:
 ```
-docker-compose up --build
+$ docker-compose up --build
 ```
 Additional pages to the documentation, edits, etc. will automatically update on the HTML page.
 
@@ -42,12 +42,11 @@ The main folders that are monitor by the automated documentation are:
 - docs/source
 - pythonScripts
 
-This last one can be renamed and its name should be updated in the docker-compose.yml and sphinxConfig.yml
-If the conf.py is updated or some changes in the documentation is not appearing after refreshing the web browser, please consider restart the docker container.
+This last one can be renamed or more folders can be added the updated name or additional folders should be reflected in the docker-compose.yml and sphinxConfig.yml.
 
 Finally, to bring the system up and running and dethatch it from the terminal run:
 ```
-docker-compose up --build -d
+$ docker-compose up --build -d
 ```
 
 ## License
