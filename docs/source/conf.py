@@ -59,10 +59,14 @@ extensions = ['sphinx.ext.viewcode',
               'sphinx.ext.napoleon',
               'sphinx.ext.autosectionlabel',
               'sphinx_rtd_theme',
-              'sphinx.ext.todo']
-
+              'sphinx.ext.todo',
+              'sphinxcontrib.inlinesyntaxhighlight']
 
 # napoleon_google_docstring = True
+# use language set by highlight directive if no language is set by role
+inline_highlight_respect_highlight = True
+# use language set by highlight directive if no role is set
+inline_highlight_literals = True
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
