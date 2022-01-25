@@ -49,3 +49,9 @@ Finally, to bring the system up and running and dethatch it from the terminal ru
 ```
 docker-compose up --build -d
 ```
+
+## License
+MIT
+
+## Author
+Giuseppe Cogoni
