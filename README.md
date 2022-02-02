@@ -49,6 +49,13 @@ Finally, to bring the system up and running and dethatch it from the terminal ru
 $ docker-compose up --build -d
 ```
 
+## :warning: For Microsoft Windows users :warning:
+If running the docker-compose on a Windows machine, it may happen that the following message appears during the build process:
+
+`WARNING: The PWD variable is not set. Defaulting to a blank string.`
+
+In order to fix the issue caused by the PWD variable within the [docker-compose.yml](docker-compose.yml), replace the `${PWD}/` with `./` to point to the relative path in the volumes declaration section.
+
 ## License
 MIT
 
