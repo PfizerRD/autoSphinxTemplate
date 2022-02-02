@@ -12,4 +12,5 @@ services:
     volumes:
       - "${PWD}/docs/source:/etc/Sphinx/source"
       - "${PWD}/pythonScripts:/etc/pythonScripts"
-      
+# uncomment the volume below to share the build folder with html content      
+#      - "${PWD}/docs/build:/etc/Sphinx/build"     
