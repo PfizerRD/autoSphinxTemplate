@@ -21,7 +21,7 @@ Classes and modules
 -------------------
 
 .. automodule:: example_google
-   :members: 
+   :members:
    :private-members:
    :special-members: __init__
 
@@ -29,7 +29,7 @@ Main routine
 ------------
 The main routine within ``example_google.py`` is showed below:
 
-.. literalinclude:: ../../pythonScripts/example_google.py
+.. literalinclude:: ../../pythonScripts/main/example_google.py
    :language: python
 
 Source Codes and Configurations
@@ -42,6 +42,5 @@ This section includes all the source codes written in python language and their 
 ``example_google.py``
 ^^^^^^^^^^^^^^^^^^^^^
 
-.. literalinclude:: ../../pythonScripts/example_google.py
+.. literalinclude:: ../../pythonScripts/main/example_google.py
    :language: python
-

@@ -22,8 +22,9 @@ with open(sphinxConfFile, "rt") as file_obj:
     sphinxParameters = yaml.safe_load(file_obj.read())
 
 sys.path.insert(0, os.path.abspath('_ext'))
-for folder in sphinxParameters['project']['scriptsFolders']:
-    sys.path.insert(0, os.path.abspath('../../{}'.format(folder)))
+sys.path.insert(0, os.path.abspath('../../pythonScripts'))
+for folder in sphinxParameters['project']['scriptsSubFolders']:
+    sys.path.insert(0, os.path.abspath('../../pythonScripts/{}'.format(folder)))
 
 #sys.setrecursionlimit(1500)
 
@@ -48,6 +49,9 @@ rst_epilog = '\n'.join(map(lambda x: f".. |{x}| replace:: {frozen_locals[x]}", v
 del frozen_locals
 
 numfig = True
+
+#use the autodoc_mock_imports to exclude libraries from being imported
+# autodoc_mock_imports = ['coloredlogs']
 
 # -- General configuration ---------------------------------------------------
 

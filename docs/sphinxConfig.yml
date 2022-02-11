@@ -3,5 +3,5 @@ project:
     copyright: 2022
     authors: John Doe
     release: 0.1
-    scriptsFolders:
-      - pythonScripts
+    scriptsSubFolders:
+      - main

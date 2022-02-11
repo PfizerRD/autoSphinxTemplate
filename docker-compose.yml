@@ -10,7 +10,6 @@ services:
     ports:
       - 8080:80
     volumes:
-      - "${PWD}/docs/source:/etc/Sphinx/source"
-      - "${PWD}/pythonScripts:/etc/pythonScripts"
-# uncomment the volume below to share the build folder with html content      
-#      - "${PWD}/docs/build:/etc/Sphinx/build"     
+      - "./docs/source:/etc/Sphinx/source"
+      - "./docs/build:/etc/Sphinx/build"
+      - "./pythonScripts:/etc/pythonScripts"

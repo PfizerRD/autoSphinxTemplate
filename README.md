@@ -20,12 +20,13 @@ The structure of the repository for the automated documentation is the following
 │   ├── Dockerfile
 │   ├── requirements.txt
 │   └── sphinxConfig.yml
-├── pythonScripts (can be renamed or more can folders can be also added)
+├── pythonScripts (main scripts folder, sub-folders can be also added)
+│   ├── main (this is an example of sub-folder that will be listed in the ['sphinxConfig.yml']('./docs/sphinxConfig.yml') file)
+|   │   └── example_google.py (Google example of docstring)
 │   ├── file_1.py
 │   ├── file_2.py
 │   ├── ...
 │   └── file_n.py
-├── otherFolder (depends on the project and can be also more than one)
 ├── .gitignore
 ├── LICENSE
 ├── README.md
@@ -48,13 +49,6 @@ Finally, to bring the system up and running and dethatch it from the terminal ru
 ```
 $ docker-compose up --build -d
 ```
-
-## :warning: For Microsoft Windows users :warning:
-If running the docker-compose on a Windows machine, it may happen that the following message appears during the build process:
-
-`WARNING: The PWD variable is not set. Defaulting to a blank string.`
-
-In order to fix the issue caused by the PWD variable within the [docker-compose.yml](docker-compose.yml), replace the `${PWD}/` with `./` to point to the relative path in the volumes declaration section.
 
 ## License
 MIT
