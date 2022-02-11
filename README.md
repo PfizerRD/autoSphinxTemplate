@@ -21,7 +21,7 @@ The structure of the repository for the automated documentation is the following
 │   ├── requirements.txt
 │   └── sphinxConfig.yml
 ├── pythonScripts (main scripts folder, sub-folders can be also added)
-│   ├── main (this is an example of sub-folder that will be listed in the ['sphinxConfig.yml']('./docs/sphinxConfig.yml') file)
+│   ├── main (this is an example of sub-folder that is also listed within this repo's sphinxConfig.yml file)
 |   │   └── example_google.py (Google example of docstring)
 │   ├── file_1.py
 │   ├── file_2.py
