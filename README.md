@@ -35,7 +35,7 @@ The structure of the repository for the automated documentation is the following
 
 To bring the system up and running simply point the repository folder within the terminal/command prompt and run:
 ```
-$ docker-compose up --build
+docker-compose up --build
 ```
 Additional pages to the documentation, edits, etc. will automatically update on the HTML page.
 
@@ -47,7 +47,7 @@ This last one can be renamed or more folders can be added the updated name or ad
 
 Finally, to bring the system up and running and dethatch it from the terminal run:
 ```
-$ docker-compose up --build -d
+docker-compose up --build -d
 ```
 
 ## License
