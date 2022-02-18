@@ -1,5 +1,6 @@
 git+https://github.com/sphinx-doc/sphinx
 sphinx_rtd_theme
 sphinx-autobuild
+sphinx-copybutton
 sphinxcontrib-inlinesyntaxhighlight
 PyYAML

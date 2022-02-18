@@ -64,6 +64,7 @@ extensions = ['sphinx.ext.viewcode',
               'sphinx.ext.autosectionlabel',
               'sphinx_rtd_theme',
               'sphinx.ext.todo',
+              'sphinx_copybutton',
               'sphinxcontrib.inlinesyntaxhighlight']
 
 # napoleon_google_docstring = True
@@ -106,6 +107,7 @@ html_logo = '_static/Pfizer_Logo_White_PMS.png'
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 html_css_files = ['style.css']
+html_favicon = '_static/favicon.svg'
 
 html_sidebars = {}
 html_sidebars['**'] = ['globaltoc.html', 'sourcelink.html', 'searchbox.html']
